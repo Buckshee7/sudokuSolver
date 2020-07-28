@@ -12,12 +12,14 @@ class Sudoku:
                     return (row, cell)
 
     def check_valid(self, number, row, column):
+        row_valid = self.check_in_row(number, row)
+        column_valid = self.check_in_column(number)
+        square_valid = self.check_in_square(number)
+
+    def check_in_row(self, number, row):
         pass
 
-    def check_in_row(self, number, row, column):
-        pass
-
-    def check_in_column(self, number, row, column):
+    def check_in_column(self, number, column):
         pass
 
     def check_in_square(self, number, row, column):

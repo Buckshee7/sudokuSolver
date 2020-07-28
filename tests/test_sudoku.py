@@ -33,3 +33,9 @@ class TestSudoku(unittest.TestCase):
         ]
         self.doku_2 = Sudoku(grid)
         self.assertEqual((1, 3), self.doku_2.find_next_none())
+
+    def test_check_in_row_true(self):
+        self.assertEqual(True, self.doku.check_in_row(2))
+
+    def test_check_in_row_false(self):
+        self.assertEqual(False, self.doku.check_in_row(2))
