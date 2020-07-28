@@ -39,3 +39,9 @@ class TestSudoku(unittest.TestCase):
 
     def test_check_in_row_false(self):
         self.assertEqual(False, self.doku.check_in_row(3, 0))
+
+    def test_check_in_column_true(self):
+        self.assertEqual(True, self.doku.check_in_column(1, 0))
+
+    def test_check_in_column_false(self):
+        self.assertEqual(False, self.doku.check_in_column(4, 0))
