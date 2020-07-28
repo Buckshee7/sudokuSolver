@@ -17,7 +17,10 @@ class Sudoku:
         square_valid = self.check_in_square(number)
 
     def check_in_row(self, number, row):
-        pass
+        for cell in self.matrix[row]:
+            if cell == number:
+                return True
+        return False
 
     def check_in_column(self, number, column):
         pass
