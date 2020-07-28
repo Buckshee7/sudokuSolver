@@ -16,17 +16,13 @@ class Sudoku:
         column_invalid = self.check_in_column(number, column_index)
         square_invalid = self.check_in_square(number)
 
-    def check_in_row(self, number, row_index, matrix = None):
-        if matrix == None:
-            matrix = self.matrix
-        for cell in matrix[row_index]:
+    def check_in_row(self, number, row_index):
+        for cell in self.matrix[row_index]:
             if cell == number:
                 return True
         return False
 
-    def check_in_column(self, number, column_index, matrix = None):
-        if matrix == None:
-            matrix = self.matrix
+    def check_in_column(self, number, column_index):
         for row in self.matrix:
             if row[column_index] == number:
                 return True
@@ -43,7 +39,10 @@ class Sudoku:
 
     def check_in_square(self, number, row_index, column_index):
         inner_matrix = self.construct_inner_matrix(row_index, column_index)
-        pass
+        for row in inner_matrix:
+            if number in row:
+                return True
+        return False
 
 
 

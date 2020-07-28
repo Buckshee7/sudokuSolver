@@ -50,6 +50,6 @@ class TestSudoku(unittest.TestCase):
         self.assertEqual(True, self.doku.check_in_square(6, 0, 0))
 
     def test_check_in_square_false(self):
-        self.assertEqual(False, self.doku.check_in_square(8, 5, 6))
+        self.assertEqual(False, self.doku.check_in_square(8, 6, 6))
 
     #no tests for construct_inner_matrix
