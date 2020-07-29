@@ -52,4 +52,14 @@ class TestSudoku(unittest.TestCase):
     def test_check_in_square_false(self):
         self.assertEqual(False, self.doku.check_in_square(8, 6, 6))
 
+    def test_construct_inner_matrix_0_0(self):
+        self.assertEqual([[None, None, None], [6, 8, None], [1, 9, None]], self.doku.construct_inner_matrix(1, 1))
+
+    def test_construct_inner_matrix_2_2(self):
+        self.assertEqual([[None, None, None], [6, 8, None], [1, 9, None]], self.doku.construct_inner_matrix(2, 2))
+
+    def test_construct_inner_matrix_3_3(self):
+        self.assertEqual([[None, None, None], [6, 8, None], [1, 9, None]], self.doku.construct_inner_matrix(3, 3))       
+        
     #no tests for construct_inner_matrix
+    #no tests for check_valid

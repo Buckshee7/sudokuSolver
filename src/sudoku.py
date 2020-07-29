@@ -14,7 +14,10 @@ class Sudoku:
     def check_valid(self, number, row_index, column_index):
         row_invalid = self.check_in_row(number, row_index)
         column_invalid = self.check_in_column(number, column_index)
-        square_invalid = self.check_in_square(number)
+        square_invalid = self.check_in_square(number, row_index, column_index)
+        if not row_invalid and column_invalid and square_invalid:
+            return True
+        return False
 
     def check_in_row(self, number, row_index):
         for cell in self.matrix[row_index]:
