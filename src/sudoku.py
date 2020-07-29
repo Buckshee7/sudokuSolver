@@ -15,7 +15,7 @@ class Sudoku:
         row_invalid = self.check_in_row(number, row_index)
         column_invalid = self.check_in_column(number, column_index)
         square_invalid = self.check_in_square(number, row_index, column_index)
-        if not row_invalid and column_invalid and square_invalid:
+        if not row_invalid and not column_invalid and not square_invalid:
             return True
         return False
 
