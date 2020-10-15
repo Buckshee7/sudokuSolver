@@ -17,7 +17,7 @@ class TestSudoku(unittest.TestCase):
         self.doku = Sudoku(self.grid)
 
     def test_find_none(self):
-        self.assertEqual((0, 0), self.doku.find_next_none())
+        self.assertEqual((0, 0), self.doku.find_next_empty())
 
     def test_find_none_v2(self):
         grid = [
@@ -32,7 +32,7 @@ class TestSudoku(unittest.TestCase):
             [7, None, 3, None, 1, 8, None, None, None]
         ]
         self.doku_2 = Sudoku(grid)
-        self.assertEqual((1, 3), self.doku_2.find_next_none())
+        self.assertEqual((1, 3), self.doku_2.find_next_empty())
 
     def test_check_in_row_true(self):
         self.assertEqual(True, self.doku.check_in_row(2, 0))

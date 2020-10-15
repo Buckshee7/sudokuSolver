@@ -2,7 +2,7 @@ class Sudoku:
     def __init__(self, grid):
         self.matrix = grid
     
-    def find_next_none(self):
+    def find_next_empty(self):
         for row_index in range(len(self.matrix)):
             for column_index in range(len(self.matrix[row_index])):
                 if self.matrix[row_index][column_index] == None:
@@ -45,25 +45,24 @@ class Sudoku:
         return False
 
     def solve(self):
-        #finds next cell to target, returns if no cell
-        next_none = self.find_next_none()
-        if next_none == None:
+        # base case
+            # finds next empty cell to target, returns None if no more empty cells
+        next_empty = self.find_next_empty()
+        if next_empty == None:
             print(self.matrix)
             return self.matrix
-        #tries each number 1 to 9 and if valid sets cell to number
+
+        # tries each number 1 to 9 in empty cell and if valid sets cell to number
         for number in range(1,10):
-            if self.check_valid(number, next_none[0], next_none[1]) == True:
-                self.matrix[next_none[0]][next_none[1]] = number
-                #recusring will check the next empty cell
-                #if the-rest-of-the-cells are ok return the current matrix
+            # if number is valid for cell then set it to the number
+            if self.check_valid(number, next_empty[0], next_empty[1]) == True:
+                self.matrix[next_empty[0]][next_empty[1]] = number
+                # recursion to check the number is valid for the rest of the grid
+                    # if the rest of the grid can be completed with this number in the cell return the current matrix to parent call
                 if self.solve() == self.matrix:
                     return self.matrix
-                #otherwise, empty the cell of the number we just tried
-                self.matrix[next_none[0]][next_none[1]] = None
+                # otherwise, empty the cell of the number we just tried in case this level of recursion has to return false (no valid solutions)
+                self.matrix[next_empty[0]][next_empty[1]] = None
         #if each number tried and none of them work - returns false to parent function call
         return False
-
-
-
-
-
+        
